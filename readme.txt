@@ -1,7 +1,7 @@
 === PushBots - Web Push Notifications ===
 Plugin Name: PushBots - Web Push Notifications
 Plugin URI: https://www.pushbots.com/
-Description: Reach out to your Wordpress visitors with desktop push notifications. 
+Description: Reach out to your Wordpress visitors with desktop push notifications
 Author: Abdallah Nofal
 Author URI: https://github.com/AbdallahNofal/
 Version: 1.0
@@ -11,7 +11,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Reach out to your Wordpress visitors with desktop push notifications. Now supporting Chrome, Firefox, and Safari.
 
 == Description ==
-Increase user engagement, retention and life-time-value for your app and website via the power of push messaging.
+Increase user engagement, retention and life-time-value for your app and website via the power of push messaging. This plugin uses PushBots.com service and requires you to have a working account.  
 
 == Installation ==
 
@@ -24,3 +24,6 @@ Increase user engagement, retention and life-time-value for your app and website
 
 = 1.0.0 =
 - Initial release of the plugin
+
+
+
