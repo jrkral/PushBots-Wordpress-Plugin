@@ -7,31 +7,31 @@
         <tr>
           <th><label for="pb_application_id"><?php _e('App ID', $this->plugin->name); ?></label></th>
           <td>
-          <input type="text" name="pb_application_id" id="pb_application_id" value="<?php echo get_option( 'pb_application_id', true); ?>" class="regular-text" /><br />
+          <input type="text" name="pb_application_id" id="pb_application_id" value="<?php echo esc_html(get_option( 'pb_application_id', true)); ?>" class="regular-text" /><br />
           </td>
         </tr>
         <tr>
           <th><label for="pb_application_secret"><?php _e('App Secret', $this->plugin->name); ?></label></th>
           <td>
-          <input type="text" name="pb_application_secret" id="pb_application_secret" value="<?php echo get_option( 'pb_application_secret', true); ?>" class="regular-text" /><br />
+          <input type="text" name="pb_application_secret" id="pb_application_secret" value="<?php echo esc_html(get_option( 'pb_application_secret', true)); ?>" class="regular-text" /><br />
           </td>
         </tr>
         <tr>
           <th><label for="pb_website_url"><?php _e('Website URL', $this->plugin->name); ?></label></th>
           <td>
-          <input type="text" name="pb_website_url" id="pb_website_url" value="<?php echo get_option( 'pb_website_url', true); ?>" class="regular-text" /><br />
+          <input type="text" name="pb_website_url" id="pb_website_url" value="<?php echo esc_url(get_option( 'pb_website_url', true)); ?>" class="regular-text" /><br />
         </td>
       </tr>
       <tr>
         <th><label for="pb_gcm_sender_id"><?php _e('GCM Sender ID', $this->plugin->name); ?> <small>(optional)</small></label></th>
         <td>
-        <input type="text" name="pb_gcm_sender_id" id="pb_gcm_sender_id" value="<?php echo get_option( 'pb_gcm_sender_id', true); ?>" class="regular-text" /><br />
+        <input type="text" name="pb_gcm_sender_id" id="pb_gcm_sender_id" value="<?php echo esc_html(get_option( 'pb_gcm_sender_id', true)); ?>" class="regular-text" /><br />
         </td>
       </tr>
       <tr>
         <th><label for="pb_safari_push_id"><?php _e('Safari Push Id', $this->plugin->name); ?> <small>(optional)</small></label></th>
         <td>
-          <input type="text" name="pb_safari_push_id" id="pb_safari_push_id" placeholder="web.com.pushbots.main" value="<?php echo get_option( 'pb_safari_push_id', true); ?>" class="regular-text" /><br />
+          <input type="text" name="pb_safari_push_id" id="pb_safari_push_id" placeholder="web.com.pushbots.main" value="<?php echo esc_html(get_option( 'pb_safari_push_id', true)); ?>" class="regular-text" /><br />
         </td>
       </tr>
       <tr><td><hr/></td><td><hr/></td></tr>
@@ -44,13 +44,29 @@
       <tr>
           <th><label for="pb_welcome_title"><?php _e('Welcome Title', $this->plugin->name); ?></label></th>
           <td>
-            <input type="text" name="pb_welcome_title" id="pb_welcome_title" value="<?php echo (get_option('pb_welcome_title', true))? get_option('pb_welcome_title', true) :'Welcome 🙌🎉'; ?>" class="regular-text"  <?php echo (get_option('pb_enable_welcome_message', true))? '' : 'disabled'; ?>  /><br />
+            <input
+                type="text"
+                placeholder="<?php _e('Welcome 🙌🎉', $this->plugin->name) ?>"
+                name="pb_welcome_title"
+                id="pb_welcome_title"
+                value="<?php echo esc_html(get_option('pb_welcome_title', true)); ?>"
+                class="regular-text"
+                <?php echo (get_option('pb_enable_welcome_message', true))? '' : 'disabled'; ?>
+            /><br />
           </td>
       </tr>
       <tr>
           <th><label for="pb_welcome_message"><?php _e('Welcome Message', $this->plugin->name); ?></label></th>
           <td>
-            <input type="text" name="pb_welcome_message" id="pb_welcome_message" value="<?php echo (get_option('pb_welcome_message', true))? get_option('pb_welcome_message', true) : 'Thanks for subscribing!'; ?>"  <?php echo (get_option('pb_enable_welcome_message', true))? '' : 'disabled'; ?> class="regular-text" /><br />
+            <input
+                type="text"
+                name="pb_welcome_message"
+                id="pb_welcome_message"
+                placeholder="<?php _e('Thanks for subscribing!', $this->plugin->name) ?>"
+                value="<?php echo esc_html(get_option('pb_welcome_message', true)); ?>"
+                <?php echo (get_option('pb_enable_welcome_message', true))? '' : 'disabled'; ?>
+                class="regular-text"
+            /><br />
           </td>
       </tr>
   </table>

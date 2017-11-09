@@ -54,13 +54,20 @@ class WPPushBots {
 
     // Save Settings
     if ( isset( $_REQUEST['submit'] ) ) {
-        update_option( 'pb_application_id', $_REQUEST['pb_application_id'] );
-        update_option( 'pb_application_secret', $_REQUEST['pb_application_secret'] );
-        update_option( 'pb_gcm_sender_id', $_REQUEST['pb_gcm_sender_id'] );
-        update_option( 'pb_website_url', esc_url($_REQUEST['pb_website_url']));
-        update_option( 'pb_safari_push_id', $_REQUEST['pb_safari_push_id'] );
-        update_option( 'pb_enable_welcome_message', $_REQUEST['pb_enable_welcome_message'] );
-        if($_REQUEST['pb_enable_welcome_message']) {
+        $app_id = sanitize_text_field($_REQUEST['pb_application_id']);
+        $app_secret = sanitize_text_field($_REQUEST['pb_application_secret']);
+        $gcm_sender_id = sanitize_text_field($_REQUEST['pb_gcm_sender_id']);
+        $website_url = esc_url_raw($_REQUEST['pb_website_url']);
+        $safari_push_id = sanitize_text_field($_REQUEST['pb_safari_push_id']);
+        $welcome_message_enabled = $_REQUEST['pb_enable_welcome_message'];
+
+        update_option( 'pb_application_id',  $app_id);
+        update_option( 'pb_application_secret', $app_secret );
+        update_option( 'pb_gcm_sender_id', $gcm_sender_id );
+        update_option( 'pb_website_url', $website_url);
+        update_option( 'pb_safari_push_id', $safari_push_id );
+        update_option( 'pb_enable_welcome_message', $welcome_message_enabled);
+        if($welcome_message_enabled) {
             update_option( 'pb_welcome_title', sanitize_text_field($_REQUEST['pb_welcome_title']));
             update_option( 'pb_welcome_message', sanitize_text_field($_REQUEST['pb_welcome_message']));
         }
