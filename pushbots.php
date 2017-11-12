@@ -61,12 +61,15 @@ class WPPushBots {
         $safari_push_id = sanitize_text_field($_REQUEST['pb_safari_push_id']);
         $welcome_message_enabled = $_REQUEST['pb_enable_welcome_message'];
 
+        if (is_bool($welcome_message_enabled) === true) {
+          update_option( 'pb_enable_welcome_message', $welcome_message_enabled);          
+        }
+        
         update_option( 'pb_application_id',  $app_id);
         update_option( 'pb_application_secret', $app_secret );
         update_option( 'pb_gcm_sender_id', $gcm_sender_id );
         update_option( 'pb_website_url', $website_url);
         update_option( 'pb_safari_push_id', $safari_push_id );
-        update_option( 'pb_enable_welcome_message', $welcome_message_enabled);
         if($welcome_message_enabled) {
             update_option( 'pb_welcome_title', sanitize_text_field($_REQUEST['pb_welcome_title']));
             update_option( 'pb_welcome_message', sanitize_text_field($_REQUEST['pb_welcome_message']));
