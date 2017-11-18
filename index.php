@@ -2,10 +2,10 @@
 /*
 Plugin Name: PushBots - Web Push Notifications
 Plugin URI: https://www.pushbots.com/
-Description: Reach out to your Wordpress visitors with desktop push notifications.
-Author: Abdallah Nofal
-Author URI: https://github.com/AbdallahNofal/
-Version: 1.0
+Description: Reach out to your Wordpress visitors with browser desktop push notifications
+Author: PushBots
+Author URI: https://github.com/PushBots
+Version: 1.0.5
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */

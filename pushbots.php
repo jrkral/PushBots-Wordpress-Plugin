@@ -7,7 +7,7 @@ class WPPushBots {
     $this->plugin->name         = 'pushbots'; // Plugin Folder
     $this->plugin->sdk         = 'sdk'; // Plugin Folder
     $this->plugin->displayName  = 'PushBots'; // Plugin Name
-    $this->plugin->version      = '1.0';
+    $this->plugin->version      = '1.0.4';
     $this->plugin->folder       = plugin_dir_path( __FILE__ );
     $this->plugin->url          = plugin_dir_url( __FILE__ );
     $this->plugin->db_welcome_dismissed_key = $this->plugin->name . '_welcome_dismissed_key';
@@ -61,7 +61,7 @@ class WPPushBots {
         $safari_push_id = sanitize_text_field($_REQUEST['pb_safari_push_id']);
         $welcome_message_enabled = $_REQUEST['pb_enable_welcome_message'];
 
-        if (is_bool($welcome_message_enabled) === true) {
+        if($_REQUEST['pb_enable_welcome_message'] === 'on' || !$_REQUEST['pb_enable_welcome_message']) {
           update_option( 'pb_enable_welcome_message', $welcome_message_enabled);          
         }
         
@@ -96,10 +96,9 @@ class WPPushBots {
     /* change this post type to any type you want to add the custom field to */
     if (get_post_type($post) != 'post') return false;
     /* get the value corrent value of the custom field */
-    $value = get_post_meta($post->ID, 'pb_send_notification', true);
     ?>
     <div class="misc-pub-section">
-      <label><input type="checkbox" name="pb_send_notification" /> Send push notification</label>
+      <label><input type="checkbox" name="pb_send_notification" id="pb_send_notification" /> Send push notification</label>
     </div>
     <?php
   }
@@ -110,16 +109,12 @@ class WPPushBots {
 
       /* check if the user can edit this page */
       if ( !current_user_can( 'edit_page', $postid ) ) return false;
-
       /* check if there's a post id and check if this is a post */
       /* make sure this is the same post type as above */
       if(empty($postid) || $_POST['post_type'] != 'post' ) return false;
-
       /* check if the custom field is submitted (checkboxes that aren't marked, aren't submitted) */
-      if(isset($_POST['pb_send_notification'])){
+      if(isset($_POST['pb_send_notification']) && get_post_status($postid) == 'publish'){
           /* store the value in the database */
-
-          setup_postdata( $postid );
           $appID =  $this->settings['pb_application_id'];;
           $appSecret =  $this->settings['pb_application_secret'];
 
@@ -140,8 +135,9 @@ class WPPushBots {
           $pb->Alert(wp_trim_words(get_the_content( $postid), 55));
           $pb->Payload($args);
           $pb->Push();
+          setup_postdata( $postid );
+          
       }
-
   }
 
 }
