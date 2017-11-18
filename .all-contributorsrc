@@ -13,7 +13,7 @@
       "avatar_url": "https://avatars0.githubusercontent.com/u/4125944?v=4",
       "profile": "https://www.facebook.com/abdullah.nofall",
       "contributions": [
-        "code",
+        "code"
       ]
     },
     {
@@ -23,6 +23,15 @@
       "profile": "http://amrsobhy.com",
       "contributions": [
         "plugin"
+      ]
+    },
+    {
+      "login": "AbdullahDiaa",
+      "name": "Abdullah Diaa",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/733794?v=4",
+      "profile": "https://abdullahdiaa.com",
+      "contributions": [
+        "code"
       ]
     }
   ]
