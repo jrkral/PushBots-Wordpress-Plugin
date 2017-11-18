@@ -1,7 +1,7 @@
 # PushBots-Wordpress-Plugin
 
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/pushbots.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=pushbots)[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
-
+[![WordPress plugin](https://img.shields.io/wordpress/plugin/dt/pushbots-web-push-notifications.svg)](pushbots-web-push-notifications)
 
 
 This plugin makes it easy to integrate your website with PushBots. 
