@@ -1,5 +1,10 @@
 # PushBots-Wordpress-Plugin
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+
+[![Watch on GitHub][github-watch-badge]][github-watch]
+[![Star on GitHub][github-star-badge]][github-star]
+[![Tweet][twitter-badge]][twitter]
+
 This plugin makes it easy to integrate your website with PushBots. 
 
 ## Contributors
