@@ -7,7 +7,7 @@ class WPPushBots {
     $this->plugin->name         = 'pushbots'; // Plugin Folder
     $this->plugin->sdk         = 'sdk'; // Plugin Folder
     $this->plugin->displayName  = 'PushBots'; // Plugin Name
-    $this->plugin->version      = '1.0.4';
+    $this->plugin->version      = '1.0.7';
     $this->plugin->folder       = plugin_dir_path( __FILE__ );
     $this->plugin->url          = plugin_dir_url( __FILE__ );
     $this->plugin->db_welcome_dismissed_key = $this->plugin->name . '_welcome_dismissed_key';
@@ -82,9 +82,6 @@ class WPPushBots {
 }
 
 
-
-
-
   function cd_meta_box_add() {
     add_meta_box( 'pb-box', $this->plugin->displayName, array($this, 'article_push_checkbox'), 'post', 'side', 'high' );
   }
@@ -119,7 +116,7 @@ class WPPushBots {
           $appSecret =  $this->settings['pb_application_secret'];
 
           $args = array(
-            "nTitle"=> get_the_title($postid),
+            "nTitle"=>html_entity_decode(get_the_title($postid), ENT_QUOTES, "UTF-8"),
             "openURL" => get_permalink($postid)
           );
 
@@ -132,7 +129,8 @@ class WPPushBots {
           $pb = new PushBots();
           $pb->App($appID, $appSecret);
           $pb->Platform(array(2,3,4,5));
-          $pb->Alert(wp_trim_words(get_the_content( $postid), 55));
+		  $post = get_post($postid);
+		  $pb->Alert(htmlspecialchars_decode(wp_trim_words($post->post_content, 55)));
           $pb->Payload($args);
           $pb->Push();
           setup_postdata( $postid );

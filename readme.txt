@@ -5,8 +5,8 @@ Description: Reach out to your Wordpress visitors with browser desktop push noti
 Author: PushBots
 Author URI: https://github.com/PushBots
 Contributors: abdallahnofal
-Version: 1.0.5
-Stable tag: 1.0.5
+Version: 1.0.7
+Stable tag: 1.0.7
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
